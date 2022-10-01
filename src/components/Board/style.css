@@ -1,0 +1,14 @@
+.grid {
+  display: grid;
+  border: 4px double black;
+  color: white;
+  justify-content: center;
+}
+
+.grid-item {
+  border: 2px solid white;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

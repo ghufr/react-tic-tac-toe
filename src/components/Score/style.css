@@ -1,0 +1,14 @@
+.score-container {
+  display: flex;
+  justify-content: center;
+  gap: 4em;
+  text-align: center;
+}
+
+.score-item .name {
+  font-size: 1em;
+}
+
+.score-item .score {
+  font-size: 2em;
+}

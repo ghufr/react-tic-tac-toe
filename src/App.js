@@ -1,23 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
+import Board from './components/Board';
+import Score from './components/Score';
+
+import useGame from './hooks/useGame';
+import usePlayer from './hooks/usePlayer';
+import TogglePlayMode from './components/TogglePlayMode';
+
+const boardSize = 3;
 
 function App() {
+  // Hooks to create player list
+  const { players, mode, modes, setMode } = usePlayer();
+  const { board, scores, tie, nextMove } = useGame({
+    players,
+    boardSize,
+  });
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='container'>
+      <Board board={board} boardSize={boardSize} onClick={nextMove} />
+      <Score players={players} scores={scores} tie={tie} />
+      <TogglePlayMode modes={modes} mode={mode} onClick={setMode} />
     </div>
   );
 }
